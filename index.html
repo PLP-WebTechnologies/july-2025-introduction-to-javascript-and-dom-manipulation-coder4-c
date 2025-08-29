@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Buddy Dashboard</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <!-- Name Input Section -->
+            <div class="name-section" id="nameSection">
+                <h2>Welcome to Study Buddy! 🎓</h2>
+                <div class="name-input-group">
+                    <input type="text" id="nameInput" placeholder="Enter your name to get started..." maxlength="25">
+                    <button class="btn btn-primary" onclick="setUserName()">Let's Go!</button>
+                </div>
+            </div>
+            
+            <!-- Personalized Greeting -->
+            <div class="greeting-section" id="greetingSection" style="display: none;">
+                <div class="greeting" id="greeting">Welcome, Student!</div>
+                <div class="datetime" id="datetime"></div>
+                <button class="btn change-name-btn" onclick="changeName()">Change Name</button>
+            </div>
+        </div>
+        
+        <div class="dashboard">
+            <!-- Grade Calculator -->
+            <div class="card">
+                <h3>📊 Grade Calculator</h3>
+                <div class="form-group">
+                    <label for="assignment1">Assignment 1 Score:</label>
+                    <input type="number" id="assignment1" placeholder="Enter score out of 100" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label for="assignment2">Assignment 2 Score:</label>
+                    <input type="number" id="assignment2" placeholder="Enter score out of 100" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label for="assignment3">Assignment 3 Score:</label>
+                    <input type="number" id="assignment3" placeholder="Enter score out of 100" min="0" max="100">
+                </div>
+                <button class="btn btn-primary" onclick="calculateGrade()">Calculate Average</button>
+                <div class="result" id="gradeResult"></div>
+            </div>
+            
+            <!-- Study Time Calculator -->
+            <div class="card">
+                <h3>⏰ Study Session Planner</h3>
+                <div class="form-group">
+                    <label for="studyHours">Study Hours Available:</label>
+                    <input type="number" id="studyHours" placeholder="Enter hours" min="1" max="24">
+                </div>
+                <div class="form-group">
+                    <label for="subjects">Number of Subjects:</label>
+                    <input type="number" id="subjects" placeholder="Enter number of subjects" min="1" max="10">
+                </div>
+                <button class="btn btn-primary" onclick="planStudyTime()">Plan Session</button>
+                <div class="result" id="studyPlan"></div>
+            </div>
+            
+            <!-- Study Tips Generator -->
+            <div class="card">
+                <h3>💡 Study Tips Generator</h3>
+                <button class="btn btn-primary" onclick="generateStudyTips()">Generate Tips</button>
+                <button class="btn" onclick="clearTips()">Clear Tips</button>
+                <div class="study-tips" id="studyTips"></div>
+            </div>
+            
+            <!-- Pomodoro Timer -->
+            <div class="card">
+                <h3>🍅 Pomodoro Timer</h3>
+                <div class="form-group">
+                    <label for="timerMinutes">Minutes to Study:</label>
+                    <input type="number" id="timerMinutes" placeholder="Enter minutes" min="1" max="60" value="25">
+                </div>
+                <button class="btn btn-primary" onclick="startTimer()">Start Timer</button>
+                <button class="btn btn-danger" onclick="stopTimer()">Stop Timer</button>
+                <div class="countdown-display" id="timerDisplay">25:00</div>
+            </div>
+            
+            <!-- Todo List -->
+            <div class="card">
+                <h3>📝 Study Todo List</h3>
+                <div class="form-group">
+                    <input type="text" id="todoInput" placeholder="Enter a study task...">
+                    <button class="btn btn-primary" onclick="addTodo()">Add Task</button>
+                </div>
+                <ul class="todo-list" id="todoList"></ul>
+                <button class="btn" onclick="clearCompletedTasks()">Clear Completed</button>
+            </div>
+            
+            <!-- Interactive Quote Display -->
+            <div class="card">
+                <h3>🎯 Motivational Quotes</h3>
+                <div class="result" id="quoteDisplay">Click below to get motivated!</div>
+                <button class="btn btn-primary" onclick="displayRandomQuote()">Get New Quote</button>
+                <button class="btn" onclick="toggleQuoteAnimation()">Toggle Animation</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="JS/script.js"></script>
+</body>
+</html>
